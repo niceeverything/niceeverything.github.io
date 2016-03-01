@@ -1,0 +1,67 @@
+﻿body{
+	background: url(../images/bg.jpg) no-repeat center top;
+	height: 979px;
+}
+.inner{
+	width: 1040px;
+	margin:0 auto;
+}
+.logo{
+	position:relative;
+}
+.nav{
+	height: 428px;
+	background: url(../images/nav-bg.png) no-repeat center top;
+	position:relative;
+}
+a{
+	text-decoration:none;
+}
+.nav .navbox a{
+	float:left;
+	width: 178px;
+	height: 178px;
+	background: url(../images/navli.png) no-repeat center top;
+	line-height:178px;
+	font-size: 26px;
+	color:#fff;
+	text-align:center;
+	margin-right:81px;
+	font-weight: bold;
+}
+.navbox{
+	padding-left:170px;
+}
+.nav .navbox a:hover{
+	background: url(../images/navlicur.png) no-repeat center top;
+}
+.xnav{
+	height: 62px;
+	background: url(../images/xnavbg.png) repeat-x left center;
+	width: 680px;
+	margin:0 auto;
+}
+.xnav a{
+	float:left;
+	width: 152px;
+	height: 62px;
+	text-align:center;
+	color:#ff0000;
+	line-height:62px;
+	margin-right:144px;
+	background: url(../images/xnavli.png) no-repeat center top;
+}
+.xnav a:hover{
+	color:#000;
+	
+	background: url(../images/xnavlicur.png) no-repeat center top;
+}
+.xnav a.mr0{
+	margin-right:0px;
+}
+.xnavin{
+	margin:0px -32px;
+}
+.cp{
+	color:#5e5e5e;
+}

@@ -1,10 +1,74 @@
-<!DOCTYPE html>
-	<html>
-	<head>
-	　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	　<title>一步步在GitHub上创建博客主页(2)</title>
-	</head>
-	<body>
-	　{{content }}
-	</body>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" rev="stylesheet" href="style/reset.css" type="text/css" />
+	<link rel="stylesheet" rev="stylesheet" href="style/global.css" type="text/css" />
+	<link rel="stylesheet" rev="stylesheet" href="style/index.css" type="text/css" />
+	<script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="script/index.js"></script>
+
+</head>
+<body>
+	<div class="logo tac">
+		<div class="cl h30"></div>
+		<h1><a href="#" class="" ><img src="images/logo.png" alt="" /></a></h1>
+		<div class="cl h30"></div>
+	</div>
+	
+	<div class="nav">
+		<div class="inner">
+			<div class="navbox">
+				<a href="#" class="" >最快线路</a>
+				<a href="#" class="" >香港线路</a>
+				<a href="#" class="" >国际线路</a>
+				<div class="cl"></div>
+			</div>
+			<div class="cl h43"></div>
+			<div class="xnav">
+				<div class="xnavin">
+					<a href="#" class="" >资讯站下载 </a>
+					<a href="#" class="" >立即免费注册 </a>
+					<a href="#" class="mr0" >在线客服 </a>
+					<div class="cl"></div>
+				</div>
+			</div>
+			<div class="cl h52"></div>
+			<div class="tac"><img src="images/img1.png" alt="" /></div>
+		</div>
+	</div>
+	<div class="cl h32"></div>
+	<div class="tac">
+		<div class="inner">
+			
+			<div class=""><img src="images/img2.png" alt="" /></div>
+			<div class="cl h22"></div>
+			<div class=""><a href="#" class="" ><img src="images/img3.png" alt="" /></a></div>
+			
+		</div>
+	</div>
+	
+	
+	<div class="inner">
+		<div class="cp tac">Copyright © Sands澳门金沙赌场 Reserved</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+    function initx(){
+		$(".logo").css({
+			top: -50
+		})
+		$(".nav").css({
+			top: 150
+		})
+		
+		
+		$(".logo, .nav").stop().animate({
+			top: 0
+		},1000)
+	}
+	initx();
+</script>
 </html>

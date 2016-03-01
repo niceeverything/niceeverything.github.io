@@ -1,0 +1,150 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body,button, input, select, textarea /* for ie */ {
+    font: 14px/1.5 arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
+
+sup { vertical-align: text-top; } /* 重置，减少对行高的影响 */
+sub { vertical-align: text-bottom; }
+
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* 重置 HTML5 元素 */
+article, aside, details, figcaption, figure, footer,header, hgroup, menu, nav, section,summary, time, mark, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+mark { background: #ff0; }
+
+/*=== globle ===*/
+.grid{ width: 1000px; height: 100%; margin:0 auto; margin-top: 40px; position: relative; background-color: #123;}
+body{ font-family: "微软雅黑"; color: #555; background:#003300; text-align: center; color: #ffffff; overflow-x: hidden;}
+a{ color: #ffffff;}
+a:hover{color: #ffff00;}
+.hide{ display: none;}
+
+.fll{ float: left;}
+.flr{ float: right;}
+.clearfix:after{content:'\20'; display:block; height:0; clear:both;}
+.clearfix{*zoom:1;}
+.vvbody{position:absolute; z-index:1; padding-top:0px; top:0px;}
+/*=== header ===*/
+#logo{display: block; width: 300px; height: 200px;z-index:5; background:url(../images/logo.png); position: absolute; left: 50%; top: -50px; margin-left: -150px;}
+#nav{ height: 360px; width: 1000px; position: absolute; left: 0; top: 300px;z-index:4; background:url(../images/nav-bg.png); }
+#nav a{
+	display: block;
+	height: 110px;
+	padding-top: 66px;
+	width: 176px;
+	float: left;
+	margin-left: 85px;
+	background:url(../images/linkbg.png);
+	font-size:30px;
+	font-weight:bold;
+}
+#nav a:hover{
+	background:url(../images/linkbg_hover.png);
+}
+#nav a span.txt{
+	display: block;
+	width: 125px;
+	height: 45px;
+	margin: 0 auto;
+	font-size:30px;
+	font-weight:bold;
+}
+#nav a:hover span.txt{
+}
+#nav a.hk{ margin-left: 147px;}
+#nav a.tw span.txt{}
+#nav a.tw:hover span.txt{}
+#nav a.fb span.txt{}
+#nav a.fb:hover span.txt{}
+#nav a.kf span.txt{}
+#nav a.kf:hover span.txt{}
+
+#momenu{
+	position: absolute;
+	z-index:8;
+	width: 100%;
+	top: 520px;
+	left: 0;
+	overflow:hidden;
+}
+
+#momenu .hhr{width:680px; height:41px; background:url(../images/news.png) no-repeat; margin:0px auto;}
+#momenu .hhr ul{ overflow:hidden;}
+#momenu .hhr ul li{float:left; text-align:center;line-height:280%;height:41px;width:130px;}
+#momenu .hhr ul li a{ font-size:18px;}
+#momenu .hhr ul li.l{}
+#momenu .hhr ul li.m{ margin-left:145px;}
+#momenu .hhr ul li.m a{ color:#FFFF00; font-weight:bold;}
+#momenu .hhr ul li.m a:hover{color:#ffffff; }
+#momenu .hhr ul li.r{ margin-left:145px;}
+
+
+#dlw{position:absolute;width:100%; z-index:9; height:206px;top:820px;left:0px;}
+#dlw .dlbox{width:702px; height:206px; background:url(../images/news2.png) no-repeat left; margin:0px auto;}
+#dlw .dlbox ul{overflow:hidden;}
+#dlw .dlbox ul.l{width:702px;height:110px; }
+#dlw .dlbox ul.l li{width:702px;height:110px;}
+#dlw .dlbox ul.l li a{width:702px;height:110px;display:block; cursor:pointer;}
+#dlw .dlbox ul.r{height:90px;width:702px;}
+#dlw .dlbox ul.r li{width:690px;height:90px; text-align:justify; padding-left:10px; line-height:200%;}
+
+
+
+.sub{
+	position: absolute;
+	width: 100%;
+	top: 520px;
+	left: 0;
+	z-index:7;
+}
+.sub h3{font-size: 30px; font-weight: bold; }
+.sub p{ padding: 10px 0; font-size: 14px; font-weight: bold;}
+.browser{ width: 420px; margin: 0 auto;}
+.browser li{ float: left; vertical-align: middle; height: 35px; line-height: 40px; margin: 10px 5px;}
+.browser li a{display: block; height: 30px; font-size: 12px; padding-top: 5px; padding-left: 35px; background:url(../images/uc.png) no-repeat;}
+.browser li.ie a{ background:url(../images/ie.png) no-repeat;}
+.browser li.ff a{ background:url(../images/ff.png) no-repeat;}
+.browser li.ch a{ background:url(../images/ch.png) no-repeat;}
+.browser li.sa a{ background:url(../images/sa.png) no-repeat;}
+
+
+#footer{
+	position: absolute;
+	z-index:6;
+	top: 720px;
+	width: 100%;
+	font-size: 16px; 
+	line-height: 30px;
+	left: 0;
+}
+#footer a{font-weight: bold; margin: 3px;}
