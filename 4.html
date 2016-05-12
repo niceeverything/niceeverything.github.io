@@ -11,12 +11,13 @@
 		<script type="text/javascript" src="jquery.qrcode.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				//页面加载完毕生成
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
 				var image = document.getElementById("code");
 				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
 				image.src = canvas.toDataURL("image/png");
-
+				//改变输入值
 				$("#mySlider").change(function(){
 					//alert($("#mySlider").val());
 					$("#code").empty();
@@ -30,8 +31,10 @@
 					image.src = canvas.toDataURL("image/png");
 					
 				});
-				$(".range-slider").change(function(){
-					//alert($("#mySlider").val());
+				///改变滑块
+				$(".range-slider").blur(function(){
+					alert("Asfasdf");
+					alert($("#mySlider").val());
 					$("#code").empty();
 					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
 					
@@ -44,7 +47,7 @@
 					image.src = canvas.toDataURL("image/png");
 				});
 
-				$("#sub_btn").click(function(){
+				$("#sub_btn").focusout(function(){
 					$("#abc").val("Dolly Duck");
 					alert("ASdfasdf");
 				//$("#code").empty();
