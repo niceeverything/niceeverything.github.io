@@ -14,7 +14,7 @@
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
 
-				$(".range-slider").click(function(){
+				$(".range-slider-handle").click(function(){
 					//alert($("#mySlider").val());
 					$("#code").empty();
 					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
@@ -25,7 +25,6 @@
 						text: str
 					});
 				});
-
 			})
 
 		</script>
