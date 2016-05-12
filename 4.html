@@ -13,21 +13,61 @@
 			$(function(){
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
+				var image = document.getElementById("code");
+				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+				image.src = canvas.toDataURL("image/png");
 
-				$(".range-slider").mouseup(function(){
+				$("#mySlider").change(function(){
 					//alert($("#mySlider").val());
 					$("#code").empty();
 					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
-					$("#code").qrcode({
+						$("#code").qrcode({
 						render: "canvas",
-						width: 256,
-						height:256,
 						text: str
 					});
+					var image = document.getElementById("code");
+					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+					image.src = canvas.toDataURL("image/png");
+					
+				});
+				$(".range-slider").change(function(){
+					//alert($("#mySlider").val());
+					$("#code").empty();
+					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
+					
+					$("#code").qrcode({
+						render: "canvas",
+						text: str
+					});
+					var image = document.getElementById("code");
+					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+					image.src = canvas.toDataURL("image/png");
 				});
 
-			})
+				$("#sub_btn").click(function(){
+					$("#abc").val("Dolly Duck");
+					alert("ASdfasdf");
+				//$("#code").empty();
+				//var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mytxt").val();
+				//	$("#code").qrcode({
+				//		render: "canvas",
+				//		text: str
+				//	});
+				});
 
+				
+			})
+			function download(canvasElem, filename, imageType) {
+			    var event, saveLink, imageData, defalutImageType;
+			    defalutImageType = 'png';//定义默认图片类型
+			    imageData = canvasElem.toDataURL(imageType || defalutImageType);//将canvas元素转化为image data
+			    saveLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+			    saveLink.href = imageData;
+			    saveLink.download = filename;
+			    event = document.createEvent('MouseEvents');
+			    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			    saveLink.dispatchEvent(event);
+			};
 		</script>
 	</head>
 	<body>
@@ -47,7 +87,7 @@
 			<div class="row">
 				<div class="large-12 columns">
 					<div class="row collapse prefix-radius">
-						<div class="small-3 columns"> <span class="prefix">存入比特币</span>
+						<div class="small-3 columns"> <span class="prefix">存入</span>
 						</div>
 						<div class="small-9 columns">
 							<input type="number" id="mySlider" value="">
@@ -64,13 +104,23 @@
 						<div class="small-3 columns"> <span class="prefix">人民币值</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="number" placeholder="">
+							<input type="number" id="abc" value="" placeholder="">
 						</div>
 					</div>
-					<div id="code"></div>
+					<p><input type="text" class="input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
+
+					<img id="code" src="">  
+					
 				</div>
 			</div>
+
+			
 		</form>
+
+		
+
+
+		
 		<!-- 初始化 Foundation JS -->
 		<script>
 			$(document).ready(function() {
