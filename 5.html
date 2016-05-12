@@ -18,6 +18,7 @@
 				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
 				image.src = canvas.toDataURL("image/png");
 				//改变输入值
+
 				$("#mySlider").change(function(){
 					//alert($("#mySlider").val());
 					$("#code").empty();
@@ -32,7 +33,7 @@
 					
 				});
 				///改变滑块
-				$(".range-slider").click(function(){
+				$(".range-slider").mouseout(function(){
 					//alert("Asfasdf");
 					//alert($("#mySlider").val());
 					$("#code").empty();
@@ -48,7 +49,6 @@
 				});
 
 				$("#sub_btn").click(function(){
-					//$("#abcnice").val("Dolly Duck");
 					alert($("#mySlider").val() + "\n" + $("#abcnice").val());
 					$("#abcnice").val("123fff");
 				});
@@ -95,7 +95,7 @@
 							<input type="number" id="abcnice" value="" placeholder="">
 						</div>
 					</div>
-					<p><input type="text" class="input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
+					<p><input type="text" class="small-9 columns input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
 
 					<img id="code" src="">  
 					
