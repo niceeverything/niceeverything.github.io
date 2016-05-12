@@ -25,13 +25,14 @@
 						text: str
 					});
 				});
+
 				$("#sub_btn").click(function(){
 				$("#code").empty();
-				var str = toUtf8("bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mytxt").val());
+				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mytxt").val();
 					$("#code").qrcode({
-						render: "Canvas",
-						width: 150,
-						height:150,
+						render: "canvas",
+						width: 256,
+						height:256,
 						text: str
 					});
 				});
@@ -76,7 +77,9 @@
 							<input type="number" placeholder="">
 						</div>
 					</div>
+					<p><input type="text" class="input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
 					<div id="code"></div>
+					
 				</div>
 			</div>
 		</form>
