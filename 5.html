@@ -11,22 +11,51 @@
 		<script type="text/javascript" src="jquery.qrcode.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				//页面加载完毕生成
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
-
-				$(".range-slider-handle").click(function(){
-					alert($("#mySlider").val());
+				var image = document.getElementById("code");
+				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+				image.src = canvas.toDataURL("image/png");
+				//改变输入值
+				$("#mySlider").change(function(){
+					//alert($("#mySlider").val());
 					$("#code").empty();
 					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
-					$("#code").qrcode({
+						$("#code").qrcode({
 						render: "canvas",
-						width: 256,
-						height:256,
 						text: str
 					});
+					var image = document.getElementById("code");
+					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+					image.src = canvas.toDataURL("image/png");
+					
 				});
-			})
+				///改变滑块
+				$(".range-slider").click(function(){
+					//alert("Asfasdf");
+					//alert($("#mySlider").val());
+					$("#code").empty();
+					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
+					
+					$("#code").qrcode({
+						render: "canvas",
+						text: str
+					});
+					var image = document.getElementById("code");
+					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+					image.src = canvas.toDataURL("image/png");
+				});
 
+				$("#sub_btn").click(function(){
+					//$("#abcnice").val("Dolly Duck");
+					alert($("#mySlider").val() + "\n" + $("#abcnice").val());
+					$("#abcnice").val("123fff");
+				});
+
+
+				
+			})
 		</script>
 	</head>
 	<body>
@@ -46,7 +75,7 @@
 			<div class="row">
 				<div class="large-12 columns">
 					<div class="row collapse prefix-radius">
-						<div class="small-3 columns"> <span class="prefix">存入比特币</span>
+						<div class="small-3 columns"> <span class="prefix">存入</span>
 						</div>
 						<div class="small-9 columns">
 							<input type="number" id="mySlider" value="">
@@ -63,13 +92,23 @@
 						<div class="small-3 columns"> <span class="prefix">人民币值</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="number" placeholder="">
+							<input type="number" id="abcnice" value="" placeholder="">
 						</div>
 					</div>
-					<div id="code"></div>
+					<p><input type="text" class="input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
+
+					<img id="code" src="">  
+					
 				</div>
 			</div>
+
+			
 		</form>
+
+		
+
+
+		
 		<!-- 初始化 Foundation JS -->
 		<script>
 			$(document).ready(function() {
