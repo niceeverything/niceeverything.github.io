@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Foundation 实例</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+		<script src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+		<script src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+		<script src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+		<script type="text/javascript" src="jquery.qrcode.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
+				$('#code').qrcode(str);
+
+				$(".range-slider").mouseup(function(){
+					//alert($("#mySlider").val());
+					$("#code").empty();
+					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
+					$("#code").qrcode({
+						render: "canvas",
+						width: 256,
+						height:256,
+						text: str
+					});
+				});
+			})
+
+		</script>
+	</head>
+	<body>
+		<form>
+			<div class="row">
+				 <h2>订单提交</h2>
+				<div class="large-12 columns">
+					<div class="row collapse prefix-radius">
+						<div class="small-3 columns"> <span class="prefix">会员账号</span>
+						</div>
+						<div class="small-9 columns">
+							<input type="text" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<div class="row collapse prefix-radius">
+						<div class="small-3 columns"> <span class="prefix">存入比特币</span>
+						</div>
+						<div class="small-9 columns">
+							<input type="number" id="mySlider" value="">
+						</div>
+					</div>
+				</div>
+				<div class="small-12 columns">
+					<div class="range-slider" data-slider data-options="display_selector: #mySlider; start:0;end:100;step: 0.001; initial:1.68;"> <span class="range-slider-handle"></span>
+ <span class="range-slider-active-segment"></span>
+					</div>
+				</div>
+				<div class="large-12 columns">
+					<div class="row collapse prefix-radius">
+						<div class="small-3 columns"> <span class="prefix">人民币值</span>
+						</div>
+						<div class="small-9 columns">
+							<input type="number" placeholder="">
+						</div>
+					</div>
+					<div id="code"></div>
+				</div>
+			</div>
+		</form>
+		<!-- 初始化 Foundation JS -->
+		<script>
+			$(document).ready(function() {
+			    $(document).foundation();
+			})
+		</script>
+	</body>
+
+</html>
