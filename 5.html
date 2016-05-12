@@ -20,42 +20,32 @@
 				//改变输入值
 
 				$("#mySlider").change(function(){
-					//alert($("#mySlider").val());
-					$("#code").empty();
-					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
-						$("#code").qrcode({
-						render: "canvas",
-						text: str
-					});
-					var image = document.getElementById("code");
-					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
-					image.src = canvas.toDataURL("image/png");
-					
+					cq();
 				});
 				///改变滑块
-				$(".range-slider").mouseout(function(){
-					//alert("Asfasdf");
-					//alert($("#mySlider").val());
-					$("#code").empty();
-					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
-					
-					$("#code").qrcode({
-						render: "canvas",
-						text: str
-					});
-					var image = document.getElementById("code");
-					var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
-					image.src = canvas.toDataURL("image/png");
+				$(".range-slider").mouseup(function(){
+					cq();
 				});
 
 				$("#sub_btn").click(function(){
-					alert($("#mySlider").val() + "\n" + $("#abcnice").val());
-					$("#abcnice").val("123fff");
+					cq();
+					//alert("已经刷新")
 				});
 
-
-				
+				 
 			})
+			function cq(){
+				$("#code").empty();
+				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
+				
+				$("#code").qrcode({
+					render: "canvas",
+					text: str
+				});
+				var image = document.getElementById("code");
+				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
+				image.src = canvas.toDataURL("image/png");
+			}
 		</script>
 	</head>
 	<body>
@@ -95,9 +85,8 @@
 							<input type="number" id="abcnice" value="" placeholder="">
 						</div>
 					</div>
-					<p><input type="text" class="small-9 columns input" id="mytxt" value=""> <input type="button" id="sub_btn" value="提交"></p>
-
-					<img id="code" src="">  
+						<input type="button" id="sub_btn" value="刷新二维码"></p>
+						<img id="code" src="">  
 					
 				</div>
 			</div>
