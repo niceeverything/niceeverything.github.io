@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>测试</title>
+		<title>Foundation 实例</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
@@ -9,32 +9,31 @@
 		<script src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
 		<script src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
 		<script type="text/javascript" src="jquery.qrcode.min.js"></script>
-		<style type="text/css" media="screen" id="test">
-			code{ color: #f00;; }
-		</style>
 		<script type="text/javascript">
 			$(function(){
-				///读取数据
-				$.getJSON("http://api.huobi.com/staticmarket/ticker_btc_json.js",function(data){ 
-				btc2rmb=parseInt(data.ticker.low);
-				$("#rmb").val($("#mySlider").val()*btc2rmb);
-				$("#rmbbtc").val(btc2rmb);
-				})
 				//页面加载完毕生成
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
 				var image = document.getElementById("code");
 				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
 				image.src = canvas.toDataURL("image/png");
+				//改变输入值
 
-				$("#sub_btn").click(function(){
-					$("#rmb").val(($("#mySlider").val()*btc2rmb).toFixed(2));
-					
+				$("#mySlider").change(function(){
 					cq();
 				});
+				///改变滑块
+				$(".range-slider").mouseup(function(){
+					cq();
+				});
+
+				$("#sub_btn").click(function(){
+					cq();
+					//alert("已经刷新")
+				});
+
 				 
 			})
-			//生成图片
 			function cq(){
 				$("#code").empty();
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
@@ -80,49 +79,25 @@
 				</div>
 				<div class="large-12 columns">
 					<div class="row collapse prefix-radius">
-						<div class="small-3 medium-2 columns"> <span class="prefix">人民币值</span>
-						</div>
-						<div class="small-9 medium-4 columns">
-							<input type="number" id="rmb" value="" disabled="disabled" placeholder="">
-						</div>
-						<div class="row collapse prefix-radius">
-							<div class="small-3 medium-2 columns"> <span class="prefix">当前汇率</span>
-							</div>
-							<div class="small-9 medium-4 columns ">
-								<input type="number" id="rmbbtc" value="" disabled="disabled" placeholder="">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="large-12 columns">
-					<div class="row collapse prefix-radius">
-						<div class="small-3 columns"> <span class="prefix">比特币地址</span>
+						<div class="small-3 columns"> <span class="prefix">人民币值</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="text" disabled="disabled" value="13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV">
+							<input type="number" id="abcnice" value="" placeholder="">
 						</div>
 					</div>
-				</div>
-				
-				<div class="small-12 columns">
-					<div class="small-6 columns" style="padding-left: 0px;">
-					<input type="button" class="button expand" id="sub_btn" value="刷新二维码">
-					</div>
-					<div class="small-6 columns" style="padding-right: 0px;">
-					<input type="button" class="button success expand" id="sub_btn2" value="提交订单">
-					</div>
-					<div class="small-12 large-3 columns" style="padding-right: 0px;">
-						<img class="" id="code" src="">
-					</div>
-					<div class="small-12 large-9 columns" style="padding-right: 0px;">
-						<h4>比特币入款步骤:</h4>
-						<p>※ <code>输入</code>比特币金额，<code>点击刷新二维码，</code>通过<code>二维码/比特币地址</code>进行转账，<code>提交订单。</code></p>
-						<p>※ 比特币存款需要<code>10分钟</code>后自动到账。请耐心等待。</p>
-						<p>※ 您可以保存我们的二维码或者比特币地址</p>
-					</div>
+						<input type="button" id="sub_btn" value="刷新二维码"></p>
+						<img id="code" src="">  
+					
 				</div>
 			</div>
+
+			
 		</form>
+
+		
+
+
+		
 		<!-- 初始化 Foundation JS -->
 		<script>
 			$(document).ready(function() {
