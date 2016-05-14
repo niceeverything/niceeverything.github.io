@@ -10,7 +10,12 @@
 		<script src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
 		<script type="text/javascript" src="jquery.qrcode.min.js"></script>
 		<style type="text/css" media="screen" id="test">
-			code{ color: #f00;; }
+			code{ color: #f00; }
+			html,body{ height:100%; margin:0; padding:0;}
+			.main{ height:auto !important; height:100% ;min_height:100%; position:relative;}
+			.contain{background:#909; margin:0 auto; padding-bottom:80px; width:500px;}
+			.footer{ height:80px; position:absolute; bottom:0px; background:red;width:100%; clear:both;}
+			.header{width:100%; background:#3FF; height:100px;}
 		</style>
 		<script type="text/javascript">
 			$(function(){
@@ -29,7 +34,6 @@
 
 				$("#sub_btn").click(function(){
 					$("#rmb").val(($("#mySlider").val()*btc2rmb).toFixed(2));
-					
 					cq();
 				});
 				 
@@ -47,15 +51,36 @@
 				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
 				image.src = canvas.toDataURL("image/png");
 			}
+
 		</script>
 	</head>
 	<body>
+		<!--设定头部-->
+		<div class="container" style="background-color:#000;padding:25px;">
+		  <div class="row">
+		    <div class="small-6 columns" ><img src="1.png"/></div>
+		    <div class="small-6 columns" style="background-color:pink;">.small-6</div>
+		  </div>
+		</div>
+
+			
+		</div>
+		
 		<form>
 			<div class="row">
 				 <h2>订单提交</h2>
 				<div class="large-12 columns">
 					<div class="row collapse prefix-radius">
 						<div class="small-3 columns"> <span class="prefix">会员账号</span>
+						</div>
+						<div class="small-9 columns">
+							<input type="text" placeholder="">
+						</div>
+					</div>
+				</div>
+				<div class="large-12 columns">
+					<div class="row collapse prefix-radius">
+						<div class="small-3 columns"> <span class="prefix">真实姓名</span>
 						</div>
 						<div class="small-9 columns">
 							<input type="text" placeholder="">
@@ -96,7 +121,7 @@
 				</div>
 				<div class="large-12 columns">
 					<div class="row collapse prefix-radius">
-						<div class="small-3 columns"> <span class="prefix">比特币地址</span>
+						<div class="small-3 columns" > <span class="prefix">比特币地址</span>
 						</div>
 						<div class="small-9 columns">
 							<input type="text" disabled="disabled" value="13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV">
@@ -111,18 +136,20 @@
 					<div class="small-6 columns" style="padding-right: 0px;">
 					<input type="button" class="button success expand" id="sub_btn2" value="提交订单">
 					</div>
-					<div class="small-12 large-3 columns" style="padding-right: 0px;">
+					<div class="small-12 medium-4 large-3 columns" style="padding-right: 0px;">
 						<img class="" id="code" src="">
 					</div>
-					<div class="small-12 large-9 columns" style="padding-right: 0px;">
+					<div class="small-12 medium-8 large-9 columns" style="padding-right: 0px;">
 						<h4>比特币入款步骤:</h4>
 						<p>※ <code>输入</code>比特币金额，<code>点击刷新二维码，</code>通过<code>二维码/比特币地址</code>进行转账，<code>提交订单。</code></p>
 						<p>※ 比特币存款需要<code>10分钟</code>后自动到账。请耐心等待。</p>
-						<p>※ 您可以保存我们的二维码或者比特币地址</p>
+						<p>※ 您可以<code>保存我们的二维码或者比特币地址</code>以便进行付款</p>
 					</div>
 				</div>
 			</div>
 		</form>
+
+		
 		<!-- 初始化 Foundation JS -->
 		<script>
 			$(document).ready(function() {
