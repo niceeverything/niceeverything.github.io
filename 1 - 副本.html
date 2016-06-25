@@ -14,18 +14,7 @@
 				var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV";
 				$('#code').qrcode(str);
 
-				$("#mySlider").change(function(){
-					//alert($("#mySlider").val());
-					$("#code").empty();
-					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
-					$("#code").qrcode({
-						render: "canvas",
-						width: 256,
-						height:256,
-						text: str
-					});
-				});
-				$(".range-slider").change(function(){
+				$(".range-slider").mouseup(function(){
 					//alert($("#mySlider").val());
 					$("#code").empty();
 					var str = "bitcoin:13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV" + "?amount=" + $("#mySlider").val();
@@ -52,7 +41,6 @@
 		</script>
 	</head>
 	<body>
-		<a href="false.html">asfkjaskldfjsa</a>
 		<form>
 			<div class="row">
 				 <h2>订单提交</h2>

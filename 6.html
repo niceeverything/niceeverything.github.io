@@ -36,8 +36,9 @@
 					$("#rmb").val(($("#coincount").val()*btc2rmb).toFixed(2));
 					cq();
 				});
-				 
+
 			})
+			
 			//生成图片
 			function cq(){
 				$("#code").empty();
@@ -51,56 +52,6 @@
 				var canvas = document.getElementById("code").getElementsByTagName("canvas")[0];  
 				image.src = canvas.toDataURL("image/png");
 			}
-			//上传
-			//$(document).ready(function(){
-				//$("#sub_btn2").click(function(){
-					
-					//var member=document.getElementById("member").value;
-					//var relname=document.getElementById("relname").value;
-					//var coincount=document.getElementById("coincount").value;
-					//var rmb=document.getElementById("rmb").value;
-					//var rate=document.getElementById("rate").value;
-					//PostSave(str)
-					//alert(member + "\n" + relname + "\n" + coincount + "\n" + rmb +  "\n" + rate);
-					//PostSave("http://127.0.0.1:8080/post?u");
-					//$.post("http://127.0.0.1:8080/post",
-					//{
-					//	name:"Donald Duck",
-					//	city:"Duckburg"
-					//},
-					//function(data,status){
-					//	if(status=="success"){
-					//		alert("Data1111: " + data + "\nStatus: " + status);
-					//	}else{
-					//		alert("Data22222: " + data + "\nStatus: " + status);
-					//	}
-					//});
-				//});
-			//});
-		//
-		//function PostSave(str)
-		//{
-		//	var xmlhttp;
-		//	if (window.XMLHttpRequest)
-		//	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		//		xmlhttp=new XMLHttpRequest();
-		//	}
-		//	else
-		//	{// code for IE6, IE5
-		//		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		//	}
-		//	xmlhttp.onreadystatechange=function()
-		//	{
-		//		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		//		{
-		//			document.getElementById("savedata").innerHTML=xmlhttp.responseText;
-					
-		//		}
-		//	}
-		//	xmlhttp.open("POST",str,true);
-		//	xmlhttp.send();
-		//	alert("sF");
-		//}		
 		</script>
 	</head>
 	<body>
@@ -113,7 +64,7 @@
 		</div>
 		
 		
-		<form action="http://127.0.0.1:8080/post" method="get">
+		<form action="http://coin.jsgw.cc/post?ABC=ALSFKJA2AKSJFLKJ9234LKJSDFJK23J4HSFAASFMNQLHW4P234Y234KNFALSJFLKSAF" method="post">
 			<div class="row">
 				 <h2>订单提交</h2>
 				<div class="large-12 columns">
@@ -121,7 +72,7 @@
 						<div class="small-3 columns"> <span class="prefix">会员账号</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="text" id="member" placeholder="请填写会员账号 (必填)" required="required">
+							<input type="text" id="member" name="member" placeholder="请填写会员账号 (必填)" required="required">
 						</div>
 					</div>
 				</div>
@@ -130,7 +81,7 @@
 						<div class="small-3 columns"> <span class="prefix">真实姓名</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="text"  id="relname" placeholder="请填写真实姓名 (必填)" required="required">
+							<input type="text"  id="relname"  name="realname" placeholder="请填写真实中文姓名 (必填)" required="required">
 						</div>
 					</div>
 				</div>
@@ -141,12 +92,12 @@
 						<div class="small-3 columns"> <span class="prefix">存入</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="number" id="coincount" value="" min="0" max="10000" step="0.01">
+							<input type="number" id="coincount"  name="coincount" value="" min="0" max="10000" step="0.01">
 						</div>
 					</div>
 				</div>
 				<div class="small-12 columns">
-					<div class="range-slider" data-slider data-options="display_selector: #coincount; start:0;end:100;step: 0.001; initial:1.68;"> <span class="range-slider-handle"></span>
+					<div class="range-slider" id="silder" data-slider="10.22" data-options="display_selector: #coincount; start:0;end:100;step: 0.001; "> <span class="range-slider-handle"></span>
  <span class="range-slider-active-segment"></span>
 					</div>
 				</div>
@@ -155,13 +106,13 @@
 						<div class="small-3 medium-2 columns"> <span class="prefix">人民币值</span>
 						</div>
 						<div class="small-9 medium-4 columns">
-							<input type="number" id="rmb" value="" disabled="disabled" placeholder="">
+							<input type="number" id="rmb"  name="rmb" value="" readonly="true" placeholder="">
 						</div>
 						<div class="row collapse prefix-radius">
 							<div class="small-3 medium-2 columns"> <span class="prefix">当前汇率</span>
 							</div>
 							<div class="small-9 medium-4 columns ">
-								<input type="number" id="rate" value="" disabled="disabled" placeholder="">
+								<input type="number" id="rate"  name="rate" value="" readonly="true" placeholder="">
 							</div>
 						</div>
 					</div>
@@ -171,7 +122,8 @@
 						<div class="small-3 columns" > <span class="prefix">比特币地址</span>
 						</div>
 						<div class="small-9 columns">
-							<input type="text" disabled="disabled" value="13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV">
+							<input type="text" name="address" readonly="true" value="13X1q7tZSUrRvbDYrthHxwRuMBpH2dmtvV">
+							<input type="hidden" name="coinclass" value="btc">
 						</div>
 					</div>
 				</div>
@@ -204,6 +156,7 @@
 		<script>
 			$(document).ready(function() {
 			    $(document).foundation();
+			    $('.range-slider').foundation('slider', 'set_value', (1+Math.random()).toFixed(2));
 			})
 		</script>
 	</body>
